@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Jake Turner - NHSE Fellowship Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is designed as a single-page interactive portfolio with a sticky top navigation for easy access to key sections. This structure was chosen over a simple text document to provide a more dynamic, professional, and easily scannable experience for the NHSE review panel. The flow is designed to first present a high-level vision, then provide detailed evidence of skills and projects, and finally outline a clear, structured plan. This narrative arc is more persuasive and engaging for a busy reviewer. -->
+    <!-- Visualization & Content Choices: 1. Vision (Q1): Report info is motivational text -> Goal is to inform -> Presented as styled cards/text blocks for scannability -> No interaction needed -> Justification is clarity over a wall of text -> Method is HTML/Tailwind. 2. Skills (Q2): Report info is skills, project links, community initiative -> Goal is to organize and provide evidence -> Presented in a multi-column layout with interactive cards for projects and a clear display of the WhatsApp QR code -> Interaction involves hover effects and external links -> Justification is to make projects tangible and showcase community engagement -> Method is HTML/Tailwind and an `img` tag. 3. 6-Month Plan (Q3): Report info is a phased plan -> Goal is to show change over time and organization -> Presented as a visual timeline/process flow diagram -> Interaction is primarily visual structure, not clicks -> Justification is that a visual timeline is far more digestible and professional than a text description of a plan -> Method is HTML/Tailwind. CONFIRMED no Chart.js/Plotly.js needed or used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            background-color: #FDFBF8;
+            color: #3f3f46;
+        }
+        .nav-active {
+            color: #4f46e5;
+            font-weight: 600;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            bottom: -1.5rem;
+            width: 2px;
+            background-color: #e5e7eb;
+            z-index: 0;
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 1rem;
+            top: 1.5rem;
+            transform: translate(-50%, -50%);
+            width: 1rem;
+            height: 1rem;
+            border-radius: 9999px;
+            background-color: white;
+            border: 2px solid #4f46e5;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="antialiased font-sans">
+
+    <header class="sticky top-0 bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="font-bold text-lg text-gray-800">Jake Turner, EM ST6</div>
+            <div class="hidden md:flex space-x-8 text-gray-600" id="nav-menu">
+                <a href="#vision" class="hover:text-indigo-600 transition-colors duration-300">My Vision</a>
+                <a href="#skills" class="hover:text-indigo-600 transition-colors duration-300">Skills & Experience</a>
+                <a href="#plan" class="hover:text-indigo-600 transition-colors duration-300">6-Month Plan</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="hero" class="text-center py-16 md:py-24">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4">Innovating Medical Education with AI</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Seeking the NHSE Clinical Fellowship to leverage artificial intelligence, reduce clinical drudgery, and build a future where technology augments medical expertise for better patient outcomes.
+            </p>
+        </section>
+
+        <div class="border-t border-gray-200 my-12"></div>
+
+        <section id="vision" class="py-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">My Vision for AI in Medicine</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                This fellowship is an opportunity to translate frontline clinical insights into tangible technological solutions. My vision is grounded in practical applications that support clinicians, enhance training, and improve patient safety by intelligently integrating AI into our daily workflows and educational pathways.
+            </p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <h3 class="font-bold text-xl mb-2 text-indigo-700">Automate and Assist</h3>
+                    <p class="text-gray-600">AI can automate repetitive, administrative tasks where fatigue leads to errors. This frees clinicians to focus on complex decision-making and patient care, acting as an invaluable assistant to speed up care and optimise treatment pathways.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <h3 class="font-bold text-xl mb-2 text-indigo-700">Augment Expertise</h3>
+                    <p class="text-gray-600">This isn't about replacing clinicians, but augmenting them. I envision tools that act as a "second opinion" on a night shift or use narrow LLMs to provide rapid, evidence-based answers at the bedside, enhancing our capabilities when we need it most.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border border-gray-100">
+                    <h3 class="font-bold text-xl mb-2 text-indigo-700">Shape Future Training</h3>
+                    <p class="text-gray-600">By working within NHSE, I aim to help shape how these powerful tools are integrated into postgraduate training from the ground up, ensuring the next generation of doctors can effectively collaborate with the AI that will define our future.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="border-t border-gray-200 my-12"></div>
+
+        <section id="skills" class="py-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Skills & Experience</h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                I offer a unique blend of frontline clinical acumen, proven technical proficiency, and a passion for community-led education. This combination ensures that any technological solution is grounded in practicality, clinically relevant, and genuinely addresses the needs of trainees and educators.
+            </p>
+            <div class="space-y-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-700 text-center">Applied Technology in Clinical Practice</h3>
+                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <a href="https://wmebemals.netlify.app" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">Advanced Life Support</h4>
+                            <p class="text-sm text-gray-600 mt-1">Aide-memoir for ALS. This app has garnered provisional interest from the Resuscitation Council UK.</p>
+                        </a>
+                        <a href="https://majortrauma.netlify.app" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">Major Trauma</h4>
+                            <p class="text-sm text-gray-600 mt-1">An aide-memoir and clinical tool for managing major trauma cases effectively.</p>
+                        </a>
+                        <a href="https://wmebemantiemetics2.netlify.app/" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">Evidence Summaries</h4>
+                            <p class="text-sm text-gray-600 mt-1">A single-page site designed to concisely summarise clinical evidence for topics like antiemetics.</p>
+                        </a>
+                        <a href="https://wmebemstemitoome.netlify.app/" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">STEMI Mimics</h4>
+                            <p class="text-sm text-gray-600 mt-1">An information summary site to help differentiate STEMIs from their common mimics.</p>
+                        </a>
+                         <a href="https://wmebememsim.netlify.app" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">Simulation Prototype</h4>
+                            <p class="text-sm text-gray-600 mt-1">A proof-of-concept for procedurally generating simulation scenarios for training.</p>
+                        </a>
+                        <a href="https://wmebemtriage.netlify.app" target="_blank" class="block bg-white p-5 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-gray-100">
+                            <h4 class="font-bold text-indigo-700">Triage Prototype</h4>
+                            <p class="text-sm text-gray-600 mt-1">Exploring AI-assisted triage pathways and investigation suggestions.</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-gray-700 text-center">Community & Education Leadership</h3>
+                    <div class="bg-white rounded-lg shadow-md border border-gray-100 overflow-hidden md:flex md:items-center">
+                        <div class="md:w-1/3 p-6 flex justify-center">
+                            <img src="https://i.imgur.com/ExHVg52.jpeg" alt="QR Code for WhatsApp Group" class="rounded-lg w-48 h-48 object-cover">
+                        </div>
+                        <div class="md:w-2/3 p-6">
+                             <h4 class="font-bold text-xl text-indigo-700">West Midlands EBEM Group</h4>
+                            <p class="text-gray-600 mt-2">I founded and manage the West Midlands Evidence Based Emergency Medicine WhatsApp group, a thriving digital community. We host regular journal clubs, distribute concise evidence summaries, and engage members with educational quizzes, leveraging accessible technology to create an impactful peer-to-peer learning environment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="border-t border-gray-200 my-12"></div>
+
+        <section id="plan" class="py-12 scroll-mt-24">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4">Proposed 6-Month Plan</h2>
+             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-12">
+                My strategy is a dual-stream approach that grounds the fellowship's work in genuine user need while maintaining momentum on existing innovations. This method balances collaborative discovery with agile development to maximize the fellowship's potential impact from day one.
+            </p>
+            <div class="max-w-3xl mx-auto">
+                <div class="relative pl-8">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="mb-12">
+                            <p class="text-sm font-semibold text-indigo-600">Months 1-3</p>
+                            <h3 class="text-xl font-bold text-gray-800">Phase 1: Needs-Led Priority Setting</h3>
+                            <p class="text-gray-600 mt-2">Conduct a comprehensive scoping exercise modelled on the James Lind Alliance principles. Through surveys, workshops, and focus groups with EM doctors, I will collaboratively produce a "top 10" list of clinician-identified priorities for AI in EM education. This ensures our work is relevant and adoptable.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="mb-12">
+                            <p class="text-sm font-semibold text-indigo-600">Months 4-6</p>
+                            <h3 class="text-xl font-bold text-gray-800">Phase 2: Dual-Stream Project Development</h3>
+                            <div class="mt-4 space-y-4">
+                               <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-200">
+                                   <h4 class="font-semibold text-indigo-800">Stream A: Needs-Led Prototyping</h4>
+                                   <p class="text-indigo-700 text-sm">Select a high-priority area identified by clinicians and begin designing a minimum viable product (MVP), ensuring the fellowship is immediately responsive to community needs.</p>
+                               </div>
+                               <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+                                   <h4 class="font-semibold text-purple-800">Stream B: Personal Innovation Stream</h4>
+                                   <p class="text-purple-700 text-sm">Continue development of my existing projects, particularly the AI-driven simulation generator and triage support tool, to build on promising work and maintain a pipeline of innovation.</p>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                     <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div>
+                            <p class="text-sm font-semibold text-indigo-600">End of 6 Months</p>
+                            <h3 class="text-xl font-bold text-gray-800">Key Outcomes</h3>
+                            <p class="text-gray-600 mt-2">This approach will yield a user-validated roadmap for future projects and tangible progress on both a new, needs-led prototype and my existing portfolio of applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-24">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 Dr. Jake Turner. Portfolio created for NHSE Fellowship Application.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('#nav-menu a');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.4
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('nav-active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
+
+
